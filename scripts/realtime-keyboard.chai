@@ -1,0 +1,44 @@
+playerDirection.vectorMov.y = 0;
+playerDirection.vectorMov.x = 0;
+
+if(key == "up")
+{
+    playerDirection.vectorMov.y = -0.1;
+    playerAnimation.current = "runup";
+}
+else if(key == "left")
+{
+    playerDirection.vectorMov.x = -0.1;
+    playerAnimation.current = "runleft";
+}
+else if(key == "right")
+{
+    playerDirection.vectorMov.x = 0.1;
+    playerAnimation.current = "runright";
+}
+else if(key == "down")
+{
+    playerDirection.vectorMov.y = 0.1;
+    playerAnimation.current = "rundown";
+}
+else
+{
+
+    var current = playerAnimation.current;
+    if( current == "rundown")
+    {
+        playerAnimation.current = "standdown";
+    }
+    else if(current == "runright")
+    {
+        playerAnimation.current = "standright";
+    }
+    else if(current == "runup")
+    {
+        playerAnimation.current = "standup";
+    }
+    else if(current == "runleft")
+    {
+        playerAnimation.current = "standleft";
+    }
+}

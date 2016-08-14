@@ -1,0 +1,4 @@
+if(eventValue == "escape")
+{
+    window.close();
+}
