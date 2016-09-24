@@ -4,6 +4,7 @@
 
 #include "Application.hpp"
 #include "CollisionSystem.hpp"
+#include "ActionSystem.hpp"
 
 Application::Application() : mWindow(sf::VideoMode(1024, 768), "SWRPG"), mLoader("maps")
 {
@@ -17,6 +18,7 @@ Application::Application() : mWindow(sf::VideoMode(1024, 768), "SWRPG"), mLoader
     systems.add<MoveSystem>();
     systems.add<AnimationSystem>();
     systems.add<CollisionSystem>(mWindow,mLoader);
+    systems.add<ActionSystem>(mLoader);
     systems.configure();
 
     mLoader.Load("test.tmx");
@@ -141,6 +143,7 @@ void Application::start()
             systems.update<AnimationSystem>(diffTime);
             systems.update<MoveSystem>(diffTime);
             systems.update<CollisionSystem>(diffTime);
+            systems.update<ActionSystem>(diffTime);
 
             lDt = currTime;
 

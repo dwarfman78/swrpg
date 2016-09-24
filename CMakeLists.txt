@@ -11,7 +11,7 @@ set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 set(CMAKE_C_COMPILER "/usr/bin/clang")
 
-set(SOURCE_FILES main.cpp KeyBoardSystem.hpp SceneRenderingSystem.hpp Imports.hpp Application.hpp SceneRenderingSystem.cpp KeyBoardSystem.cpp Config.hpp Components.hpp MoveSystem.hpp MoveSystem.cpp AnimationSystem.hpp AnimationSystem.cpp CollisionSystem.hpp CollisionSystem.cpp Application.cpp)
+set(SOURCE_FILES main.cpp KeyBoardSystem.hpp SceneRenderingSystem.hpp Imports.hpp Application.hpp SceneRenderingSystem.cpp KeyBoardSystem.cpp Config.hpp Components.hpp MoveSystem.hpp MoveSystem.cpp AnimationSystem.hpp AnimationSystem.cpp CollisionSystem.hpp CollisionSystem.cpp Application.cpp ActionSystem.cpp Enums.hpp)
 
 add_executable(swrpg ${SOURCE_FILES})
 

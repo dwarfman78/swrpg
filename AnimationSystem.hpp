@@ -1,12 +1,13 @@
 //
 // Created by Fabien on 17/01/2016.
 //
+#ifndef SWRPG_ANIMATIONSYSTEM_HPP
+#define SWRPG_ANIMATIONSYSTEM_HPP
 
 #include "Imports.hpp"
 #include "Components.hpp"
 
-#ifndef SWRPG_ANIMATIONSYSTEM_HPP
-#define SWRPG_ANIMATIONSYSTEM_HPP
+
 class AnimationSystem : public entityx::System<AnimationSystem>
 {
 public:

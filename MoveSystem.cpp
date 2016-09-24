@@ -43,6 +43,10 @@ void MoveSystem::update(entityx::EntityManager &es, entityx::EventManager &event
 
             drawable.vectorPos.x += vectormov.x * dt;
             drawable.vectorPos.y += vectormov.y * dt;
+
+            if(vectormov.x != 0 || vectormov.y != 0) {
+                movable.lastVectorMov = vectormov;
+            }
         }
 
 
@@ -52,9 +56,10 @@ void MoveSystem::update(entityx::EntityManager &es, entityx::EventManager &event
 
 void MoveSystem::receive(const Collision &collision)
 {
-    mIntersectRec = collision.mIntersect;
-    mCollision = true;
-    mFrom = collision.mFrom;
-
-    //std::cout << mIntersectRec.left << ":" <<mIntersectRec.top << ":" << mIntersectRec.width << ":" <<mIntersectRec.height << std::endl;
+    if(collision.mType == Collision::CollisionType::DIRECT)
+    {
+        mIntersectRec = collision.mIntersect;
+        mCollision = true;
+        mFrom = collision.mFrom;
+    }
 }

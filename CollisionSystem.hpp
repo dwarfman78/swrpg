@@ -16,5 +16,6 @@ public:
 private:
     tmx::MapLoader& mLoader;
     sf::RenderTarget& mTarget;
+    bool mFarCollisionLastTimeDetected;
 };
 #endif //SWRPG_COLLISIONSYSTEM_HPP

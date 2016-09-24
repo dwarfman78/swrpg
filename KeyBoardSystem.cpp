@@ -85,5 +85,10 @@ std::string KeyBoardSystem::getRealTimeKey()
         retour = "right";
     }
 
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        retour = "space";
+    }
+
     return retour;
 }

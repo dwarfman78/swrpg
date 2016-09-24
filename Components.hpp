@@ -15,6 +15,7 @@ struct Movable
 {
     Movable(sf::Vector2f vector):vectorMov(vector){}
     sf::Vector2f vectorMov;
+    sf::Vector2f lastVectorMov;
 };
 struct Playable
 {
@@ -39,13 +40,22 @@ struct Animable
 
     sf::RenderStates states;
 };
+struct EndCollision
+{
+
+};
 struct Collision
 {
-    Collision(sf::FloatRect pA, sf::FloatRect pB, sf::FloatRect pIntersect, sf::Vector2f pFrom) : mA(pA), mB(pB), mIntersect(pIntersect), mFrom(pFrom)
+    enum CollisionType
+    {
+        DIRECT,FAR
+    };
+    Collision(CollisionType pType, tmx::MapObject* pObject, sf::FloatRect pA, sf::FloatRect pB, sf::FloatRect pIntersect, sf::Vector2f pFrom) : mType(pType),mObject(pObject),mA(pA), mB(pB), mIntersect(pIntersect), mFrom(pFrom)
     {
 
     }
-
+    CollisionType mType;
+    tmx::MapObject* mObject;
     sf::FloatRect mA,mB,mIntersect;
     sf::Vector2f mFrom;
 };
