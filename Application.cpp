@@ -8,8 +8,7 @@
 
 Application::Application() : mWindow(sf::VideoMode(1024, 768), "SWRPG"), mLoader("maps")
 {
-    mScript.add(
-            chaiscript::bootstrap::standard_library::map_type<std::map<std::string, std::string> >("ConfigMap"));
+    mScript.add(chaiscript::bootstrap::standard_library::map_type<std::map<std::string, std::string> >("ConfigMap"));
     mScript.add(chaiscript::var(&mConfig), "application");
     mScript.eval_file(CONFIG_FILE);
 
@@ -24,7 +23,6 @@ Application::Application() : mWindow(sf::VideoMode(1024, 768), "SWRPG"), mLoader
     mLoader.Load("test.tmx");
 
     mTileset.loadFromFile("maps/tileset.png");
-
 
     entityx::Entity player = entities.create();
 

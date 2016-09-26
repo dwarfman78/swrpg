@@ -4,7 +4,7 @@
 
 #include "ActionSystem.hpp"
 
-ActionSystem::ActionSystem(tmx::MapLoader& pLoader):mLoader(pLoader),mCollision(false),mObject(nullptr)
+ActionSystem::ActionSystem(tmx::MapLoader& pLoader):mLoader(pLoader),mCollision(false),mObject(nullptr),mActionPending(false)
 {
 
 }
@@ -12,17 +12,28 @@ ActionSystem::ActionSystem(tmx::MapLoader& pLoader):mLoader(pLoader),mCollision(
 void ActionSystem::configure(entityx::EventManager &event_manager) {
     event_manager.subscribe<Collision>(*this);
     event_manager.subscribe<EndCollision>(*this);
+    mChai.add(chaiscript::fun([this](const std::string& something){ say(something); }), "say");
+    mEventManager = &event_manager;
+
 }
 
 void ActionSystem::update(entityx::EntityManager &es, entityx::EventManager &events, entityx::TimeDelta dt)
 {
 // tester l'état du clavier
 
-    if (mCollision && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    if (mCollision)
     {
-        if(mObject!= nullptr)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+            if(!mActionPending) {
+                mActionPending = true;
+                if (mObject != nullptr) {
+                    mChai.eval_file(mObject->GetPropertyString("action"));
+                }
+            }
+        }
+        else
         {
-            std::cout << "ACTION : " << mObject->GetPropertyString("action") << std::endl;
+            mActionPending=false;
         }
     }
 }
@@ -30,7 +41,6 @@ void ActionSystem::update(entityx::EntityManager &es, entityx::EventManager &eve
 void ActionSystem::receive(const Collision &collision) {
     switch (collision.mType) {
         case Collision::CollisionType::FAR :
-            std::cout << "far collision detected" << std::endl;
             mObject = collision.mObject;
             mCollision = true;
             break;
@@ -41,8 +51,15 @@ void ActionSystem::receive(const Collision &collision) {
 
 void ActionSystem::receive(const EndCollision &collision)
 {
-    std::cout << "far collision ended" << std::endl;
     mCollision = false;
     mObject = nullptr;
+}
+
+void ActionSystem::say(const std::string &something) const {
+
+    if(mEventManager!= nullptr) {
+        mEventManager->emit<DialogEvent>(something);
+    }
+
 }
 

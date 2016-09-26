@@ -9,7 +9,6 @@ void KeyBoardSystem::configure(entityx::EventManager &event_manager)
     mChai.add(chaiscript::fun(&Movable::vectorMov),"vectorMov");
     mChai.add(chaiscript::fun(&sf::Vector2f::x),"x");
     mChai.add(chaiscript::fun(&sf::Vector2f::y),"y");
-
     mChai.add(chaiscript::fun(&Animable::current),"current");
 
 

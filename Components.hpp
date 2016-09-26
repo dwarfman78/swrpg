@@ -59,4 +59,9 @@ struct Collision
     sf::FloatRect mA,mB,mIntersect;
     sf::Vector2f mFrom;
 };
+struct DialogEvent
+{
+    DialogEvent(const std::string& something):mDialog(something){}
+    std::string mDialog;
+};
 #endif //SWRPG_COMPONENTS_HPP

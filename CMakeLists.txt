@@ -4,14 +4,17 @@ project(SWRPG)
 include_directories("${PROJECT_SOURCE_DIR}/extlibs/SFML/include")
 include_directories("${PROJECT_SOURCE_DIR}/extlibs/ChaiScript/include")
 include_directories("${PROJECT_SOURCE_DIR}/extlibs/tmx")
-include_directories("${PROJECT_SOURCE_DIR}/extlibs/ChaiScript/bin/")
+include_directories("${PROJECT_SOURCE_DIR}/extlibs/ChaiScript/")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -stdlib=libc++")
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
-set(CMAKE_C_COMPILER "/usr/bin/clang")
+set(CMAKE_CXX_COMPILER "/usr/local/Cellar/llvm36/3.6.2/lib/llvm-3.6/bin/clang++")
+set(CMAKE_C_COMPILER "/usr/local/Cellar/llvm36/3.6.2/lib/llvm-3.6/bin/clang")
+add_definitions(-DCHAISCRIPT_NO_THREADS)
+add_definitions(-DCHAISCRIPT_NO_THREADS_WARNING)
 
-set(SOURCE_FILES main.cpp KeyBoardSystem.hpp SceneRenderingSystem.hpp Imports.hpp Application.hpp SceneRenderingSystem.cpp KeyBoardSystem.cpp Config.hpp Components.hpp MoveSystem.hpp MoveSystem.cpp AnimationSystem.hpp AnimationSystem.cpp CollisionSystem.hpp CollisionSystem.cpp Application.cpp ActionSystem.cpp Enums.hpp)
+
+set(SOURCE_FILES main.cpp KeyBoardSystem.hpp SceneRenderingSystem.hpp Imports.hpp Application.hpp SceneRenderingSystem.cpp KeyBoardSystem.cpp Config.hpp Components.hpp MoveSystem.hpp MoveSystem.cpp AnimationSystem.hpp AnimationSystem.cpp CollisionSystem.hpp CollisionSystem.cpp Application.cpp ActionSystem.cpp)
 
 add_executable(swrpg ${SOURCE_FILES})
 

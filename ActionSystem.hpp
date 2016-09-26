@@ -17,6 +17,11 @@ private:
     tmx::MapLoader& mLoader;
     bool mCollision;
     tmx::MapObject* mObject;
+    chaiscript::ChaiScript mChai;
+
+    void say(const std::string& something) const;
+    bool mActionPending;
+    entityx::EventManager* mEventManager;
 };
 
 #endif
