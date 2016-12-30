@@ -14,7 +14,7 @@ add_definitions(-DCHAISCRIPT_NO_THREADS)
 add_definitions(-DCHAISCRIPT_NO_THREADS_WARNING)
 
 
-set(SOURCE_FILES main.cpp KeyBoardSystem.hpp SceneRenderingSystem.hpp Imports.hpp Application.hpp SceneRenderingSystem.cpp KeyBoardSystem.cpp Config.hpp Components.hpp MoveSystem.hpp MoveSystem.cpp AnimationSystem.hpp AnimationSystem.cpp CollisionSystem.hpp CollisionSystem.cpp Application.cpp ActionSystem.cpp)
+set(SOURCE_FILES main.cpp KeyBoardSystem.hpp SceneRenderingSystem.hpp Imports.hpp Application.hpp SceneRenderingSystem.cpp KeyBoardSystem.cpp Config.hpp Components.hpp MoveSystem.hpp MoveSystem.cpp AnimationSystem.hpp AnimationSystem.cpp CollisionSystem.hpp CollisionSystem.cpp Application.cpp ActionSystem.cpp DialogSystem.hpp DialogSystem.cpp)
 
 add_executable(swrpg ${SOURCE_FILES})
 

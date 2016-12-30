@@ -3,8 +3,7 @@
 //
 
 #include "Application.hpp"
-#include "CollisionSystem.hpp"
-#include "ActionSystem.hpp"
+
 
 Application::Application() : mWindow(sf::VideoMode(1024, 768), "SWRPG"), mLoader("maps")
 {
@@ -18,6 +17,7 @@ Application::Application() : mWindow(sf::VideoMode(1024, 768), "SWRPG"), mLoader
     systems.add<AnimationSystem>();
     systems.add<CollisionSystem>(mWindow,mLoader);
     systems.add<ActionSystem>(mLoader);
+    systems.add<DialogSystem>(mWindow);
     systems.configure();
 
     mLoader.Load("test.tmx");
@@ -150,6 +150,7 @@ void Application::start()
         double interpolation = (double) (mClock.getElapsedTime().asMicroseconds() + windowSize - myNextTick) / windowSize;
         systems.update<MoveSystem>(interpolation);
         systems.update<SceneRenderingSystem>(interpolation);
+        systems.update<DialogSystem>(interpolation);
 
         // end the current frame
         mWindow.display();

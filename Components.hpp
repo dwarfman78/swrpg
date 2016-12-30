@@ -61,7 +61,8 @@ struct Collision
 };
 struct DialogEvent
 {
-    DialogEvent(const std::string& something):mDialog(something){}
+    DialogEvent(const std::string& who, const std::string& something):mWho(who),mDialog(something){}
     std::string mDialog;
+    std::string mWho;
 };
 #endif //SWRPG_COMPONENTS_HPP

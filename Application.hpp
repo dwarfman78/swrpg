@@ -11,6 +11,9 @@
 #include "SceneRenderingSystem.hpp"
 #include "MoveSystem.hpp"
 #include "AnimationSystem.hpp"
+#include "CollisionSystem.hpp"
+#include "ActionSystem.hpp"
+#include "DialogSystem.hpp"
 
 class Application : public entityx::EntityX
 {

@@ -12,7 +12,7 @@ ActionSystem::ActionSystem(tmx::MapLoader& pLoader):mLoader(pLoader),mCollision(
 void ActionSystem::configure(entityx::EventManager &event_manager) {
     event_manager.subscribe<Collision>(*this);
     event_manager.subscribe<EndCollision>(*this);
-    mChai.add(chaiscript::fun([this](const std::string& something){ say(something); }), "say");
+    mChai.add(chaiscript::fun([this](const std::string& who, const std::string& something){ say(who,something); }), "say");
     mEventManager = &event_manager;
 
 }
@@ -55,10 +55,10 @@ void ActionSystem::receive(const EndCollision &collision)
     mObject = nullptr;
 }
 
-void ActionSystem::say(const std::string &something) const {
+void ActionSystem::say(const std::string& who, const std::string &something) const {
 
     if(mEventManager!= nullptr) {
-        mEventManager->emit<DialogEvent>(something);
+        mEventManager->emit<DialogEvent>(who, something);
     }
 
 }

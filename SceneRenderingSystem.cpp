@@ -3,12 +3,6 @@
 //
 #include "SceneRenderingSystem.hpp"
 
-void SceneRenderingSystem::receive(const DialogEvent &collision)
-{
-    mShowDialog = true;
-    mDialogText.setString(collision.mDialog);
-}
-void SceneRenderingSystem::configure(entityx::EventManager &event_manager) {event_manager.subscribe<DialogEvent>(*this); }
 void SceneRenderingSystem::update(entityx::EntityManager &es, entityx::EventManager &events, entityx::TimeDelta dt)
 {
     sf::View view = mTarget.getView();
@@ -74,14 +68,6 @@ void SceneRenderingSystem::update(entityx::EntityManager &es, entityx::EventMana
             mTarget.draw(layer);
         }
     }
-
-    if(mShowDialog)
-    {
-        mTarget.draw(mDialog);
-        mTarget.draw(mDialogText);
-    }
-
-
     //mLoader.Draw(mTarget, tmx::MapLayer::Debug);
 }
 

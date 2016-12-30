@@ -5,7 +5,7 @@
  </tileset>
  <layer name="back" width="32" height="24">
   <data encoding="base64" compression="zlib">
-   eJzt08sOgjAQBdCafqZv3ePbTVWWoqJu+GBvk5o0N8VI20CMXZwMM6S90EDVE6JKkj81kEIMGyods5H0y59h3RmKAH2Ye+aPsW4SwdQzXyvgYlxr5q77sdygNO7W/AGZZQHPFr9Nzs9azrfPxXU+ye/b4r/ddWQPBzgaOVWeh/S8t66nlF+br2jO/ftaRcpXVk6T98vl5+dRX+Z3df5LWBkbqjwP6XlvXdfwApWknWA=
+   eJybwsjAMGUUj+IRimOYGRhiScQ9WMTimMmzPwmorx2IOyjA0UCcTKb98UB9CVTAiWTaD8IdQNwJxV04xLHJUwt3A3EPFPciifcBcR4SzgfifjqmTXT78+hsP3K4YAufUUw5jmcbxaN4FI/igcEAFhh+YA==
   </data>
  </layer>
  <layer name="shadows" width="32" height="24" visible="0">
@@ -41,6 +41,6 @@
   <object id="23" x="264" y="288" width="88" height="16"/>
   <object id="26" x="40" y="160" width="528" height="80"/>
   <object id="27" x="64" y="288" width="64" height="64"/>
-  <object id="28" x="8" y="536" width="904" height="232"/>
+  <object id="28" x="0" y="536" width="1024" height="232"/>
  </objectgroup>
 </map>

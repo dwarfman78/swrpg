@@ -19,7 +19,7 @@ private:
     tmx::MapObject* mObject;
     chaiscript::ChaiScript mChai;
 
-    void say(const std::string& something) const;
+    void say(const std::string& who, const std::string& something) const;
     bool mActionPending;
     entityx::EventManager* mEventManager;
 };
